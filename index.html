@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-07-08 18:59:00" itemprop="dateModified" datetime="2026-07-08T18:59:00+08:00">2026-07-08</time>
+                <time title="Modified: 2026-07-08 19:20:12" itemprop="dateModified" datetime="2026-07-08T19:20:12+08:00">2026-07-08</time>
               </span>
 
           
@@ -453,12 +453,16 @@
 </tr>
 </tbody></table>
 <h3 id="工作流程总结"><a href="#工作流程总结" class="headerlink" title="工作流程总结"></a>工作流程总结</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Markdown 写作 → hexo generate（编译）→ public/ HTML → hexo server（本地预览）→ 浏览器访问</span><br></pre></td></tr></table></figure>
+
+<h3 id="零碎知识点"><a href="#零碎知识点" class="headerlink" title="零碎知识点"></a>零碎知识点</h3><p>1.GitHub Pages 是 GitHub 提供的免费静态网页托管服务。简单说就是：你可以把一个仓库自动变成一个网站，GitHub 帮你做服务器。你的仓库名是 wuming-666-jason.github.io 时，GitHub 会自动开启 Pages 功能——只要你往里面 push 内容（Hexo 生成的 HTML文件），GitHub 就会把它们当作网页托管起来，访问 <a href="https://wuming-666-jason.github.io/">https://wuming-666-jason.github.io</a> 就能看到。</p>
+<p>  所以整个流程就是：</p>
+<p>  你本地写博客(Markdown) → Hexo 生成 HTML → 部署到仓库 → GitHub Pages 自动托管 → 全世界都能访问</p>
+<p>  本质就是一个免费的网站服务器，专门给静态网页用（不能跑后端代码，但博客完全够用）。</p>
+<p>2.hexo deploy是要是空仓库，当你执行 hexo deploy 时，Hexo 会试图把自己的文件 push 到一个”有历史的仓库”里，可能会遇到 冲突（你刚生成的提交和 README的提交是两条没有共同祖先的历史线），导致 push 失败。</p>
 <hr>
 <h2 id="6、出现问题"><a href="#6、出现问题" class="headerlink" title="6、出现问题"></a>6、出现问题</h2><p>1.每次更新md文档内容后，不需要敲hexo generate+hexo server，只需要敲hexo server，因为hexo server是会监听文件本身的变化，但是如果更改了_config.yml（配置文件），那就要重新hexo generate了，甚至在网页上刷新一下都可以<br>2._posts&#x2F; 里面只能放博客文章，每个文件必须以下面这种格式开头：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 2026-07-07</span><br><span class="line">tags: [标签]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>即front-matter<br>我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示<br><img src="/../images/2026-07-07-21-17-05.png"></p>
-<hr>
-<h2 id="7、心得体会"><a href="#7、心得体会" class="headerlink" title="7、心得体会"></a>7、心得体会</h2><p><strong>技术层面</strong>：</p>
+<h2 id="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库"><a href="#即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库" class="headerlink" title="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3.还没创建好仓库"></a>即front-matter<br>我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示<br><img src="/../images/2026-07-07-21-17-05.png"><br>3.还没创建好仓库<br><img src="/image.png" alt="alt text"></h2><h2 id="7、心得体会"><a href="#7、心得体会" class="headerlink" title="7、心得体会"></a>7、心得体会</h2><p><strong>技术层面</strong>：</p>
 <p>通过本次实验，我完整地走了一遍”从零搭建 Web 开发环境”的流程。最深的体会是——现代 Web 开发工具链的模块化设计非常巧妙：Node.js 提供运行时、npm 管理依赖、Git 负责版本控制、Hexo 专注构建，每个工具各司其职又互相配合。理解了这套工具链之后，不只是 Hexo，其他基于 Node.js 的框架（如 VuePress、Hugo 等）也可以举一反三。</p>
 <p>此外，亲手操作让我对 B&#x2F;S 架构和”静态 vs 动态”网站的区别不再停留在概念层面——<code>hexo server</code> 启动后浏览器访问 <code>localhost:4000</code> 的那一刻，HTTP 请求-响应的全过程变得非常具体。</p>
 
