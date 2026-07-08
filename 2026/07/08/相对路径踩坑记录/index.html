@@ -20,15 +20,22 @@
     var CONFIG = {"hostname":"wuming-666-jason.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wuming-666-jason.github.io/tags/Hexo/index.html">
+  <meta name="description" content="今天在 Hexo 博客中遇到了图片无法显示的问题，起初百思不得其解,后来发现其实是两个小问题。 第一个是图片放错目录。Hexo 只会把 source&#x2F;images&#x2F; 下的图片拷贝到输出目录,我却把 image.png 放在了 source&#x2F;_posts&#x2F; 里,导致 HTML 里虽然生成了 &lt;img&gt; 标签,但浏览器根本找不到文件,图片裂开。 第二个是文件名带了空格。屏幕截图 2026-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相对路径踩坑记录">
+<meta property="og:url" content="https://wuming-666-jason.github.io/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天在 Hexo 博客中遇到了图片无法显示的问题，起初百思不得其解,后来发现其实是两个小问题。 第一个是图片放错目录。Hexo 只会把 source&#x2F;images&#x2F; 下的图片拷贝到输出目录,我却把 image.png 放在了 source&#x2F;_posts&#x2F; 里,导致 HTML 里虽然生成了 &lt;img&gt; 标签,但浏览器根本找不到文件,图片裂开。 第二个是文件名带了空格。屏幕截图 2026-">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-07-08T12:17:29.000Z">
+<meta property="article:modified_time" content="2026-07-08T12:17:38.815Z">
 <meta property="article:author" content="Jason Ding">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="踩坑">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wuming-666-jason.github.io/tags/Hexo/">
+<link rel="canonical" href="https://wuming-666-jason.github.io/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
 
 
 <script id="page-configurations">
@@ -36,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: Hexo | Hexo</title>
+  <title>相对路径踩坑记录 | Hexo</title>
   
 
 
@@ -139,71 +146,86 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Hexo
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wuming-666-jason.github.io/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jason Ding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          相对路径踩坑记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2026-07-08 20:17:29 / Modified: 20:17:38" itemprop="dateCreated datePublished" datetime="2026-07-08T20:17:29+08:00">2026-07-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2026</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-07-08T20:17:29+08:00"
-              content="2026-07-08">
-          07-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" itemprop="url">
-            <span itemprop="name">相对路径踩坑记录</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2026-07-07T15:00:00+08:00"
-              content="2026-07-07">
-          07-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="url">
-            <span itemprop="name">实验二：Web 软件开发环境</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>今天在 Hexo 博客中遇到了图片无法显示的问题，起初百思不得其解,后来发现其实是两个小问题。</p>
+<p>第一个是图片放错目录。Hexo 只会把 <code>source/images/</code> 下的图片拷贝到输出目录,我却把 <code>image.png</code> 放在了 <code>source/_posts/</code> 里,导致 HTML 里虽然生成了 <code>&lt;img&gt;</code> 标签,但浏览器根本找不到文件,图片裂开。</p>
+<p>第二个是文件名带了空格。<code>屏幕截图 2026-07-08.png</code> 这样的文件名到了 Markdown 解析器那里,读到空格就停了,整句变成纯文本,连 <code>&lt;img&gt;</code> 标签都没生成。</p>
+<p>修改也很简单:图片全部放进 <code>source/images/</code>,文件名换成英文无空格,引用时用 <code>../images/xxx.png</code>。这个 <code>..</code> 是相对路径的写法,意思是从当前文件退一格再进 images。这样本地编辑器预览和线上 GitHub Pages 都能正常显示。</p>
+<p>一句话总结:图片放对目录、文件名别带空格、路径写对,三件小事但少一个都不行。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="prev" title="实验二：Web 软件开发环境">
+      <i class="fa fa-chevron-left"></i> 实验二：Web 软件开发环境
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 

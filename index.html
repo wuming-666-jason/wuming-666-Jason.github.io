@@ -145,6 +145,69 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wuming-666-jason.github.io/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jason Ding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/07/08/%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">相对路径踩坑记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2026-07-08 20:17:29 / Modified: 20:17:38" itemprop="dateCreated datePublished" datetime="2026-07-08T20:17:29+08:00">2026-07-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天在 Hexo 博客中遇到了图片无法显示的问题，起初百思不得其解,后来发现其实是两个小问题。</p>
+<p>第一个是图片放错目录。Hexo 只会把 <code>source/images/</code> 下的图片拷贝到输出目录,我却把 <code>image.png</code> 放在了 <code>source/_posts/</code> 里,导致 HTML 里虽然生成了 <code>&lt;img&gt;</code> 标签,但浏览器根本找不到文件,图片裂开。</p>
+<p>第二个是文件名带了空格。<code>屏幕截图 2026-07-08.png</code> 这样的文件名到了 Markdown 解析器那里,读到空格就停了,整句变成纯文本,连 <code>&lt;img&gt;</code> 标签都没生成。</p>
+<p>修改也很简单:图片全部放进 <code>source/images/</code>,文件名换成英文无空格,引用时用 <code>../images/xxx.png</code>。这个 <code>..</code> 是相对路径的写法,意思是从当前文件退一格再进 images。这样本地编辑器预览和线上 GitHub Pages 都能正常显示。</p>
+<p>一句话总结:图片放对目录、文件名别带空格、路径写对,三件小事但少一个都不行。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wuming-666-jason.github.io/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2026-07-08 19:20:12" itemprop="dateModified" datetime="2026-07-08T19:20:12+08:00">2026-07-08</time>
+                <time title="Modified: 2026-07-08 20:16:04" itemprop="dateModified" datetime="2026-07-08T20:16:04+08:00">2026-07-08</time>
               </span>
 
           
@@ -293,7 +356,7 @@
 <p><img src="/../images/2026-07-07-21-00-41.png"></p>
 <p><em>图8：应用 NexT 主题后的博客首页</em></p>
 <h3 id="步骤九：-自定义代码片段（Snippets）"><a href="#步骤九：-自定义代码片段（Snippets）" class="headerlink" title="步骤九： 自定义代码片段（Snippets）"></a>步骤九： 自定义代码片段（Snippets）</h3><p><img src="/../images/markdowndjson.png"></p>
-<h3 id="步骤十：部署到GitHub-Pages"><a href="#步骤十：部署到GitHub-Pages" class="headerlink" title="步骤十：部署到GitHub Pages"></a>步骤十：部署到GitHub Pages</h3><p>![](&#x2F;images&#x2F;屏幕截图 2026-07-08 185117.png)</p>
+<h3 id="步骤十：部署到GitHub-Pages"><a href="#步骤十：部署到GitHub-Pages" class="headerlink" title="步骤十：部署到GitHub Pages"></a>步骤十：部署到GitHub Pages</h3><p><img src="/../images/2026-07-08-201414.png"><br><img src="/../images/screenshot-2026-07-08-185117.png"></p>
 <hr>
 <h2 id="4、实验结果"><a href="#4、实验结果" class="headerlink" title="4、实验结果"></a>4、实验结果</h2><table>
 <thead>
@@ -462,7 +525,7 @@
 <hr>
 <h2 id="6、出现问题"><a href="#6、出现问题" class="headerlink" title="6、出现问题"></a>6、出现问题</h2><p>1.每次更新md文档内容后，不需要敲hexo generate+hexo server，只需要敲hexo server，因为hexo server是会监听文件本身的变化，但是如果更改了_config.yml（配置文件），那就要重新hexo generate了，甚至在网页上刷新一下都可以<br>2._posts&#x2F; 里面只能放博客文章，每个文件必须以下面这种格式开头：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 2026-07-07</span><br><span class="line">tags: [标签]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库"><a href="#即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库" class="headerlink" title="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3.还没创建好仓库"></a>即front-matter<br>我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示<br><img src="/../images/2026-07-07-21-17-05.png"><br>3.还没创建好仓库<br><img src="/image.png" alt="alt text"></h2><h2 id="7、心得体会"><a href="#7、心得体会" class="headerlink" title="7、心得体会"></a>7、心得体会</h2><p><strong>技术层面</strong>：</p>
+<h2 id="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库，github-io形式的仓库名，才可以与blog相通4-文件名用英文，不要有空格和中文，解析会出错"><a href="#即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3-还没创建好仓库，github-io形式的仓库名，才可以与blog相通4-文件名用英文，不要有空格和中文，解析会出错" class="headerlink" title="即front-matter我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示3.还没创建好仓库，github.io形式的仓库名，才可以与blog相通4.文件名用英文，不要有空格和中文，解析会出错"></a>即front-matter<br>我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示<br><img src="/../images/2026-07-07-21-17-05.png"><br>3.还没创建好仓库，github.io形式的仓库名，才可以与blog相通<br><img src="/../images/image.png"><br>4.文件名用英文，不要有空格和中文，解析会出错</h2><h2 id="7、心得体会"><a href="#7、心得体会" class="headerlink" title="7、心得体会"></a>7、心得体会</h2><p><strong>技术层面</strong>：</p>
 <p>通过本次实验，我完整地走了一遍”从零搭建 Web 开发环境”的流程。最深的体会是——现代 Web 开发工具链的模块化设计非常巧妙：Node.js 提供运行时、npm 管理依赖、Git 负责版本控制、Hexo 专注构建，每个工具各司其职又互相配合。理解了这套工具链之后，不只是 Hexo，其他基于 Node.js 的框架（如 VuePress、Hugo 等）也可以举一反三。</p>
 <p>此外，亲手操作让我对 B&#x2F;S 架构和”静态 vs 动态”网站的区别不再停留在概念层面——<code>hexo server</code> 启动后浏览器访问 <code>localhost:4000</code> 的那一刻，HTTP 请求-响应的全过程变得非常具体。</p>
 
@@ -546,12 +609,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
