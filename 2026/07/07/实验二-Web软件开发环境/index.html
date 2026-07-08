@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wuming-666-jason.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="姓名：丁家琦学号：25010812日期：2026年7月7日   1、实验目的本次实验旨在搭建基于 Hexo 的静态博客开发环境，通过安装配置 Node.js、npm、Git 等核心工具，理解 Web 软件 B&#x2F;S 架构的基本原理，掌握静态站点生成器（SSG）的工作流程，并能够独立创建、编写和发布博客文章。  2、实验环境   项目 信息    操作系统 Windows 11 Home">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验二：Web 软件开发环境">
+<meta property="og:url" content="https://wuming-666-jason.github.io/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="姓名：丁家琦学号：25010812日期：2026年7月7日   1、实验目的本次实验旨在搭建基于 Hexo 的静态博客开发环境，通过安装配置 Node.js、npm、Git 等核心工具，理解 Web 软件 B&#x2F;S 架构的基本原理，掌握静态站点生成器（SSG）的工作流程，并能够独立创建、编写和发布博客文章。  2、实验环境   项目 信息    操作系统 Windows 11 Home">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-39-57.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-44-33.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-46-22.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-45-35.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-48-53.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-21-03-26.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-21-28-48.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/code.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260707212542_33_18.jpg">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-19-12-01.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-21-00-41.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/markdowndjson.png">
+<meta property="og:image" content="https://wuming-666-jason.github.io/images/2026-07-07-21-17-05.png">
+<meta property="article:published_time" content="2026-07-07T07:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-08T10:59:00.796Z">
+<meta property="article:author" content="Jason Ding">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="实验报告">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wuming-666-jason.github.io/images/2026-07-07-20-39-57.png">
+
+<link rel="canonical" href="https://wuming-666-jason.github.io/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>实验二：Web 软件开发环境 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wuming-666-jason.github.io/2026/07/07/%E5%AE%9E%E9%AA%8C%E4%BA%8C-Web%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jason Ding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          实验二：Web 软件开发环境
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2026-07-07 15:00:00" itemprop="dateCreated datePublished" datetime="2026-07-07T15:00:00+08:00">2026-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2026-07-08 18:59:00" itemprop="dateModified" datetime="2026-07-08T18:59:00+08:00">2026-07-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><strong>姓名</strong>：丁家琦<br><strong>学号</strong>：25010812<br><strong>日期</strong>：2026年7月7日</p>
+</blockquote>
+<hr>
+<h2 id="1、实验目的"><a href="#1、实验目的" class="headerlink" title="1、实验目的"></a>1、实验目的</h2><p>本次实验旨在搭建基于 Hexo 的静态博客开发环境，通过安装配置 Node.js、npm、Git 等核心工具，理解 Web 软件 B&#x2F;S 架构的基本原理，掌握静态站点生成器（SSG）的工作流程，并能够独立创建、编写和发布博客文章。</p>
+<hr>
+<h2 id="2、实验环境"><a href="#2、实验环境" class="headerlink" title="2、实验环境"></a>2、实验环境</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>操作系统</td>
+<td>Windows 11 Home China 10.0.26200</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>v24.16.0</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>11.13.0</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>2.54.0.windows.1</td>
+</tr>
+<tr>
+<td>Hexo CLI</td>
+<td>全局安装（npm install -g hexo-cli）</td>
+</tr>
+<tr>
+<td>代码编辑器</td>
+<td>Visual Studio Code</td>
+</tr>
+<tr>
+<td>npm 镜像源</td>
+<td><a target="_blank" rel="noopener" href="https://registry.npmmirror.com(国内镜像)/">https://registry.npmmirror.com（国内镜像）</a></td>
+</tr>
+<tr>
+<td>网络要求</td>
+<td>互联网连接（下载依赖包）</td>
+</tr>
+<tr>
+<td>博客项目路径</td>
+<td><code>D:\Blog\my-blog</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3、实验过程"><a href="#3、实验过程" class="headerlink" title="3、实验过程"></a>3、实验过程</h2><h3 id="步骤一：安装-Node-js-与-npm"><a href="#步骤一：安装-Node-js-与-npm" class="headerlink" title="步骤一：安装 Node.js 与 npm"></a>步骤一：安装 Node.js 与 npm</h3><p><img src="/../images/2026-07-07-20-39-57.png"></p>
+<p><em>图1：node -v 和 npm -v 验证输出（Node.js v24.16.0, npm 11.13.0）</em></p>
+<h3 id="步骤二：配置-npm-镜像源"><a href="#步骤二：配置-npm-镜像源" class="headerlink" title="步骤二：配置 npm 镜像源"></a>步骤二：配置 npm 镜像源</h3><p>由于 npm 默认镜像源位于国外，下载速度较慢，切换至国内镜像：</p>
+<p><img src="/../images/2026-07-07-20-44-33.png"></p>
+<p><em>图2：npm config get registry 输出结果</em></p>
+<h3 id="步骤三：安装-Git-并配置用户信息"><a href="#步骤三：安装-Git-并配置用户信息" class="headerlink" title="步骤三：安装 Git 并配置用户信息"></a>步骤三：安装 Git 并配置用户信息</h3><p><img src="/../images/2026-07-07-20-46-22.png"><br><img src="/../images/2026-07-07-20-45-35.png"></p>
+<p><em>图3：git –version 及全局用户配置验证</em></p>
+<h3 id="步骤四：安装-Hexo-CLI"><a href="#步骤四：安装-Hexo-CLI" class="headerlink" title="步骤四：安装 Hexo CLI"></a>步骤四：安装 Hexo CLI</h3><p>通过 npm 全局安装 Hexo 命令行工具：</p>
+<p><code>-g</code>（global）表示全局安装，安装完成后可在任意目录直接使用 <code>hexo</code> 命令。Hexo CLI 是整个博客框架的操控入口，后续的 <code>hexo init</code>、<code>hexo server</code>、<code>hexo generate</code> 均由其提供。</p>
+<p><img src="/../images/2026-07-07-20-48-53.png"></p>
+<p><em>图4：hexo -v 输出版本信息</em></p>
+<h3 id="步骤五：初始化博客项目"><a href="#步骤五：初始化博客项目" class="headerlink" title="步骤五：初始化博客项目"></a>步骤五：初始化博客项目</h3><p>在 D 盘创建 Blog 目录，使用 <code>hexo init</code> 初始化博客项目：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\Blog</span><br><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p><code>hexo init</code> 内部执行了三项操作：</p>
+<ol>
+<li><code>git clone</code> — 从 GitHub 拉取 Hexo 官方初始模板</li>
+<li><code>npm install</code> — 自动安装依赖包</li>
+<li>搭建标准项目目录结构</li>
+</ol>
+<p><img src="/../images/2026-07-07-21-03-26.png"></p>
+<p><em>图5：hexo init my-blog 执行过程</em></p>
+<h3 id="步骤六：本地预览博客"><a href="#步骤六：本地预览博客" class="headerlink" title="步骤六：本地预览博客"></a>步骤六：本地预览博客</h3><p>启动 Hexo 内置的本地 Web 服务器：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>看到 <code>INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</code> 表示启动成功。打开浏览器访问 <code>http://localhost:4000</code>，即可看到默认的 Hexo 博客首页。</p>
+<blockquote>
+<p>此处体现了 <strong>B&#x2F;S 架构</strong>的基本原理：浏览器（Browser）发起 HTTP 请求，Hexo Server（Server）接收请求并返回 HTML 页面。</p>
+</blockquote>
+<p><img src="/../images/2026-07-07-21-28-48.png"></p>
+<p><em>图6：浏览器访问 localhost:4000 默认博客首页</em></p>
+<h3 id="步骤七：创建并发布文章"><a href="#步骤七：创建并发布文章" class="headerlink" title="步骤七：创建并发布文章"></a>步骤七：创建并发布文章</h3><p><strong>① 创建文章：</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我的第一篇博客&quot;</span><br></pre></td></tr></table></figure>
+
+<p>该命令在 <code>source/_posts/</code> 下生成 <code>我的第一篇博客.md</code>，自动插入 Front-matter：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的第一篇博客</span><br><span class="line">date: 2026-07-07 10:00:00</span><br><span class="line"><span class="section">tags:</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<p>Front-matter（<code>---</code> 包裹的 YAML 代码块）存储文章元数据（标题、日期、标签等），由 Hexo 在生成阶段解析，不会显示在最终网页中。</p>
+<p><strong>② 编辑文章：</strong> 使用 VS Code 打开生成的 <code>.md</code> 文件，编写 Markdown 正文内容。</p>
+<p><strong>③ 生成静态页面并预览：</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><code>hexo generate</code>（简写 <code>hexo g</code>）遍历 <code>source/_posts/</code> 下的所有 <code>.md</code> 文件，套用主题模板，输出纯 HTML 至 <code>public/</code> 目录。这就是**静态站点生成器（SSG）**的核心工作流程。<br><img src="/../images/code.png"><br><img src="/../images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260707212542_33_18.jpg"></p>
+<p><em>图7：Markdown 源文件编辑和浏览器预览效果</em></p>
+<h3 id="步骤八：更换主题"><a href="#步骤八：更换主题" class="headerlink" title="步骤八：更换主题"></a>步骤八：更换主题</h3><p>安装流行的 NexT 主题，改善博客外观：</p>
+<p>修改 <code>_config.yml</code> 中 <code>theme</code> 字段为 <code>next</code>：</p>
+<p><img src="/../images/2026-07-07-19-12-01.png"></p>
+<p>清空旧缓存、重新生成并预览：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/2026-07-07-21-00-41.png"></p>
+<p><em>图8：应用 NexT 主题后的博客首页</em></p>
+<h3 id="步骤九：-自定义代码片段（Snippets）"><a href="#步骤九：-自定义代码片段（Snippets）" class="headerlink" title="步骤九： 自定义代码片段（Snippets）"></a>步骤九： 自定义代码片段（Snippets）</h3><p><img src="/../images/markdowndjson.png"></p>
+<h3 id="步骤十：部署到GitHub-Pages"><a href="#步骤十：部署到GitHub-Pages" class="headerlink" title="步骤十：部署到GitHub Pages"></a>步骤十：部署到GitHub Pages</h3><p>![](&#x2F;images&#x2F;屏幕截图 2026-07-08 185117.png)</p>
+<hr>
+<h2 id="4、实验结果"><a href="#4、实验结果" class="headerlink" title="4、实验结果"></a>4、实验结果</h2><table>
+<thead>
+<tr>
+<th>测试项</th>
+<th>源</th>
+<th>目标</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>node -v 版本验证</td>
+<td>命令提示符</td>
+<td>Node.js v24.16.0</td>
+<td>✅ 通过</td>
+</tr>
+<tr>
+<td>npm -v 版本验证</td>
+<td>命令提示符</td>
+<td>npm 11.13.0</td>
+<td>✅ 通过</td>
+</tr>
+<tr>
+<td>git –version 验证</td>
+<td>命令提示符</td>
+<td>Git 2.54.0</td>
+<td>✅ 通过</td>
+</tr>
+<tr>
+<td>hexo -v 版本验证</td>
+<td>命令提示符</td>
+<td>Hexo CLI 正常输出</td>
+<td>✅ 通过</td>
+</tr>
+<tr>
+<td>hexo init 初始化项目</td>
+<td>GitHub</td>
+<td>D:\Blog\my-blog</td>
+<td>✅ 成功</td>
+</tr>
+<tr>
+<td>hexo server 本地预览</td>
+<td>浏览器</td>
+<td><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></td>
+<td>✅ 成功</td>
+</tr>
+<tr>
+<td>hexo new 创建文章</td>
+<td>命令行</td>
+<td>生成 .md 文件</td>
+<td>✅ 成功</td>
+</tr>
+<tr>
+<td>hexo generate 生成静态页面</td>
+<td>.md 源文件</td>
+<td>public&#x2F; HTML 文件</td>
+<td>✅ 成功</td>
+</tr>
+<tr>
+<td>NexT 主题更换</td>
+<td>themes&#x2F;next</td>
+<td>博客页面外观变化</td>
+<td>✅ 成功</td>
+</tr>
+</tbody></table>
+<p><strong>最终成果</strong>：在 <code>D:\Blog\my-blog</code> 目录下成功搭建了可运行的 Hexo 博客系统，能够通过 <code>hexo server</code> 在本地浏览器中预览，并能通过 Markdown 编写和发布博客文章。</p>
+<hr>
+<h2 id="5、知识总结"><a href="#5、知识总结" class="headerlink" title="5、知识总结"></a>5、知识总结</h2><h3 id="核心工具链"><a href="#核心工具链" class="headerlink" title="核心工具链"></a>核心工具链</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>类型</th>
+<th>作用</th>
+<th>关键命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node.js</td>
+<td>运行时环境</td>
+<td>在操作系统上执行 JavaScript 代码</td>
+<td><code>node -v</code></td>
+</tr>
+<tr>
+<td>npm</td>
+<td>包管理器</td>
+<td>管理项目依赖库，下载&#x2F;安装&#x2F;更新包</td>
+<td><code>npm install -g</code> &#x2F; <code>npm config set registry</code></td>
+</tr>
+<tr>
+<td>Git</td>
+<td>版本控制</td>
+<td>代码管理与协作，克隆远程仓库</td>
+<td><code>git config --global</code> &#x2F; <code>git clone</code></td>
+</tr>
+<tr>
+<td>Hexo CLI</td>
+<td>构建工具</td>
+<td>将 Markdown 源文件编译为静态 HTML 网站</td>
+<td><code>hexo init</code> &#x2F; <code>hexo new</code> &#x2F; <code>hexo generate</code> &#x2F; <code>hexo server</code></td>
+</tr>
+</tbody></table>
+<h3 id="关键概念对比"><a href="#关键概念对比" class="headerlink" title="关键概念对比"></a>关键概念对比</h3><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态博客（SSG）</td>
+<td>本地预编译 Markdown → 纯 HTML，快、安全、无需数据库</td>
+<td>Hexo, Hugo, VuePress</td>
+</tr>
+<tr>
+<td>动态博客</td>
+<td>服务端实时查数据库生成页面，功能多、有后台</td>
+<td>WordPress, Typecho</td>
+</tr>
+<tr>
+<td>B&#x2F;S 架构</td>
+<td>Browser 发 HTTP 请求 → Server 返回 HTML</td>
+<td><code>hexo server</code> + 浏览器</td>
+</tr>
+<tr>
+<td>本地开发服务器</td>
+<td>开发阶段在本地运行的临时 HTTP 服务</td>
+<td><code>hexo server</code>（端口 4000）</td>
+</tr>
+</tbody></table>
+<h3 id="项目目录核心文件"><a href="#项目目录核心文件" class="headerlink" title="项目目录核心文件"></a>项目目录核心文件</h3><table>
+<thead>
+<tr>
+<th>文件&#x2F;目录</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_config.yml</code></td>
+<td>站点全局配置（标题、URL、主题等）</td>
+</tr>
+<tr>
+<td><code>source/_posts/</code></td>
+<td>博客文章存放目录（Markdown 格式）</td>
+</tr>
+<tr>
+<td><code>themes/</code></td>
+<td>主题目录，决定网站外观</td>
+</tr>
+<tr>
+<td><code>scaffolds/</code></td>
+<td>文章模板，定义新建文章时的默认 Front-matter</td>
+</tr>
+<tr>
+<td><code>public/</code></td>
+<td><code>hexo generate</code> 生成的静态 HTML 输出目录</td>
+</tr>
+</tbody></table>
+<h3 id="工作流程总结"><a href="#工作流程总结" class="headerlink" title="工作流程总结"></a>工作流程总结</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Markdown 写作 → hexo generate（编译）→ public/ HTML → hexo server（本地预览）→ 浏览器访问</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="6、出现问题"><a href="#6、出现问题" class="headerlink" title="6、出现问题"></a>6、出现问题</h2><p>1.每次更新md文档内容后，不需要敲hexo generate+hexo server，只需要敲hexo server，因为hexo server是会监听文件本身的变化，但是如果更改了_config.yml（配置文件），那就要重新hexo generate了，甚至在网页上刷新一下都可以<br>2._posts&#x2F; 里面只能放博客文章，每个文件必须以下面这种格式开头：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line">date: 2026-07-07</span><br><span class="line">tags: [标签]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>即front-matter<br>我在使用中，直接将obsidian中编辑的文档粘贴到了post文件夹里，导致了报错，如下图所示<br><img src="/../images/2026-07-07-21-17-05.png"></p>
+<hr>
+<h2 id="7、心得体会"><a href="#7、心得体会" class="headerlink" title="7、心得体会"></a>7、心得体会</h2><p><strong>技术层面</strong>：</p>
+<p>通过本次实验，我完整地走了一遍”从零搭建 Web 开发环境”的流程。最深的体会是——现代 Web 开发工具链的模块化设计非常巧妙：Node.js 提供运行时、npm 管理依赖、Git 负责版本控制、Hexo 专注构建，每个工具各司其职又互相配合。理解了这套工具链之后，不只是 Hexo，其他基于 Node.js 的框架（如 VuePress、Hugo 等）也可以举一反三。</p>
+<p>此外，亲手操作让我对 B&#x2F;S 架构和”静态 vs 动态”网站的区别不再停留在概念层面——<code>hexo server</code> 启动后浏览器访问 <code>localhost:4000</code> 的那一刻，HTTP 请求-响应的全过程变得非常具体。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+              <a href="/tags/Web%E5%BC%80%E5%8F%91/" rel="tag"># Web开发</a>
+              <a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" rel="tag"># 实验报告</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">1、实验目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">2、实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">3、实验过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85-Node-js-%E4%B8%8E-npm"><span class="nav-number">3.1.</span> <span class="nav-text">步骤一：安装 Node.js 与 npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C%EF%BC%9A%E9%85%8D%E7%BD%AE-npm-%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">3.2.</span> <span class="nav-text">步骤二：配置 npm 镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85-Git-%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">3.3.</span> <span class="nav-text">步骤三：安装 Git 并配置用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%9B%9B%EF%BC%9A%E5%AE%89%E8%A3%85-Hexo-CLI"><span class="nav-number">3.4.</span> <span class="nav-text">步骤四：安装 Hexo CLI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%94%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.5.</span> <span class="nav-text">步骤五：初始化博客项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%85%AD%EF%BC%9A%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E5%8D%9A%E5%AE%A2"><span class="nav-number">3.6.</span> <span class="nav-text">步骤六：本地预览博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%83%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="nav-number">3.7.</span> <span class="nav-text">步骤七：创建并发布文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%85%AB%EF%BC%9A%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">3.8.</span> <span class="nav-text">步骤八：更换主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B9%9D%EF%BC%9A-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%EF%BC%88Snippets%EF%BC%89"><span class="nav-number">3.9.</span> <span class="nav-text">步骤九： 自定义代码片段（Snippets）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%8D%81%EF%BC%9A%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages"><span class="nav-number">3.10.</span> <span class="nav-text">步骤十：部署到GitHub Pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">4、实验结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">5、知识总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%E9%93%BE"><span class="nav-number">5.1.</span> <span class="nav-text">核心工具链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E5%AF%B9%E6%AF%94"><span class="nav-number">5.2.</span> <span class="nav-text">关键概念对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E6%A0%B8%E5%BF%83%E6%96%87%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">项目目录核心文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="nav-number">5.4.</span> <span class="nav-text">工作流程总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">6、出现问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">7、心得体会</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jason Ding</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Ding</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
